@@ -68,3 +68,46 @@ images.forEach(element => {
     </div>`;
 });
 
+let elementoAttivo = 2;
+
+const itemContainerList = document.getElementsByClassName("item");
+itemContainerList[elementoAttivo].classList.add("active");
+
+// Al click del bottone destro togliere la classe active all'elemento ed aggiungerla al successivo
+elDestra.addEventListener("click",
+    
+    function buttonLeftFunc() {
+        if (elementoAttivo == images.length - 1) {
+            //reset elementoAttivo
+            elementoAttivo = 0;        
+        } else {
+            //incrementare il valore di elementoAttivo
+            elementoAttivo++;
+        }
+
+
+        document.querySelector(".item.active").classList.remove("active");
+
+        itemContainerList[elementoAttivo].classList.add("active");
+    }
+);
+
+/// Al click del bottone sinistro togliere la classe active all'elemento ed aggiungerla al precedente
+elSinistra.addEventListener("click",
+    
+    function buttonRightFunc() {
+        if (elementoAttivo == 0) {
+            //reset elementoAttivo
+            elementoAttivo = images.length - 1;
+            
+        } else {
+            //incrementare il valore di elementoAttivo
+            elementoAttivo--;
+        }
+
+        
+        document.querySelector(".item.active").classList.remove("active");
+
+        itemContainerList[elementoAttivo].classList.add("active");
+    }
+);
