@@ -49,6 +49,22 @@ const images = [
     }
 ];
 
+// Assegno ad una variabile l'elemento container
+let elItemContainer = document.getElementById('items-container');
+
 // Assegno a due costanti gli elementi frecce dell'HTML
 const elDestra = document.getElementById('right');
 const elSinistra = document.getElementById('left');
+
+// Eseguo un ciclo forEach sull'array images per far aggiungere immagini e testo all'HTML
+images.forEach(element => {    
+    elItemContainer.innerHTML += 
+    `<div class="item">
+        <img src="${element.image}" alt="image">
+        <div class="overImg">
+            <div class="imgInfo imgTitle">${element.title}</div>
+            <div class="imgInfo">${element.text}</div>
+        </div>
+    </div>`;
+});
+
